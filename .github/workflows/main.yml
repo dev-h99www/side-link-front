@@ -7,10 +7,10 @@ on:
 
 # 환경설정
 env:
-  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/today-react
+  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/side-link-front
   VERSION: ${{ github.sha }}
   NAME: go_cicd
-  BUILD_PATH: ${{ github.workspace}}/today/client
+  BUILD_PATH: ${{ github.workspace}}
 
 jobs:  
   # 빌드 Job
@@ -38,7 +38,7 @@ jobs:
         working-directory: ${{ env.BUILD_PATH }}
       - run: npm run build
         working-directory: ${{ env.BUILD_PATH }}
-             
+
       # docker build 수행
       - name: Set up docker buildx
         id: buildx
