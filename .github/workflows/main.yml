@@ -7,10 +7,10 @@ on:
 
 # 환경설정
 env:
-  DOCKER_IMAGE: ghcr.io/${{ github.actor }}//side-link-front
+  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/side-link-front
   VERSION: ${{ github.sha }}
   NAME: go_cicd
-  BUILD_PATH: ${{ github.workspace}}//side-link-front/client
+  BUILD_PATH: ${{ github.workspace}}/side-link-front/client
 
 jobs:  
   # 빌드 Job
