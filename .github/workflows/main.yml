@@ -9,8 +9,8 @@ on:
 env:
   DOCKER_IMAGE: ghcr.io/${{ github.actor }}/side-link-front
   VERSION: ${{ github.sha }}
-  NAME: go_cicd
-  BUILD_PATH: ${{ github.workspace}}/side-link-front/client
+  NAME: side-link-front
+  BUILD_PATH: ${{ github.workspace }}/side-link-front
 
 jobs:  
   # 빌드 Job
