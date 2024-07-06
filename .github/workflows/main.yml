@@ -10,7 +10,7 @@ env:
   DOCKER_IMAGE: ghcr.io/${{ github.actor }}/side-link-front
   VERSION: ${{ github.sha }}
   NAME: go_cicd
-  BUILD_PATH: ${{ github.workspace}}/today/client
+  BUILD_PATH: ${{ github.workspace}}
 
 jobs:  
   # 빌드 Job
@@ -27,7 +27,7 @@ jobs:
     steps:
       # github repository에서 checkout
       - uses: actions/checkout@v3
-      
+
       - name: List directory
         run: ls -al ${{ github.workspace }}
 
