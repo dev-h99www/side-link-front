@@ -47,7 +47,9 @@ jobs:
       # 프로젝트 의존성 설치 및 빌드
       - run: npm install
         working-directory: ${{ env.BUILD_PATH }}
-      - run: npm run build
+        
+      # NODE_PATH 설정 및 빌드 실행
+      - run: NODE_PATH=src/side-project npm run build
         working-directory: ${{ env.BUILD_PATH }}
 
       # Docker build 수행
