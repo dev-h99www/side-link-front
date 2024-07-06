@@ -28,17 +28,25 @@ jobs:
       # github repository에서 checkout
       - uses: actions/checkout@v3
 
+      # 체크아웃 후 루트 디렉토리 구조 확인
+      - name: List root directory
+        run: ls -al ${{ github.workspace }}
+
+      # side-link-front 디렉토리 구조 확인
+      - name: List project directory
+        run: ls -al ${{ github.workspace }}/side-link-front
+
       #해당 프로젝트와 호환되는 버전의 node.js
-      #- name: Set up Node.js
-      #  uses: actions/setup-node@v3
-      #  with:
-      #    node-version: '16.15.0'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.15.0'
 
       # 프로젝트 의존성 설치 및 빌드
       - run: npm install
-        working-directory: ${{ env.BUILD_PATH }}
+        working-directory: ${{ github.workspace }}/side-link-front
       - run: npm run build
-        working-directory: ${{ env.BUILD_PATH }}
+        working-directory: ${{ github.workspace }}/side-link-front
       # - name: npm build
       #   uses: actions/setup-node@v3
       #   with:
