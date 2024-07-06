@@ -30,11 +30,10 @@
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "./src/side-project",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-scripts start src/side-project",
+    "build": "react-scripts build src/side-project",
+    "test": "react-scripts test src/side-project",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -48,8 +48,8 @@ jobs:
       - run: npm install
         working-directory: ${{ env.BUILD_PATH }}
         
-      # NODE_PATH 설정 및 빌드 실행
-      - run: NODE_PATH=src/side-project npm run build
+      # 빌드 실행
+      - run: npm run build
         working-directory: ${{ env.BUILD_PATH }}
 
       # Docker build 수행
