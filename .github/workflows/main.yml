@@ -40,6 +40,7 @@ jobs:
           if [ ! -d "${{ env.BUILD_PATH }}/public" ]; then
             mkdir -p ${{ env.BUILD_PATH }}/public;
           fi
+        shell: bash
 
       # Node.js 설정
       - name: Set up Node.js
@@ -58,6 +59,7 @@ jobs:
       # NODE_PATH 설정 및 빌드 실행
       - run: NODE_PATH=src npm run build
         working-directory: ${{ env.BUILD_PATH }}
+        shell: bash
 
       # Docker build 수행
       - name: Set up docker buildx
