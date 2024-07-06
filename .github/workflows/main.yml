@@ -27,6 +27,12 @@ jobs:
       - name: List src directory
         run: ls -al ${{ env.BUILD_PATH }}/src
 
+      - name: List side-project directory
+        run: ls -al ${{ env.BUILD_PATH }}/src/side-project
+
+      - name: Check if public directory exists
+        run: if [ -d "${{ env.BUILD_PATH }}/public" ]; then echo "Public directory exists"; else mkdir ${{ env.BUILD_PATH }}/public; fi
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -35,8 +41,7 @@ jobs:
       - run: npm install
         working-directory: ${{ env.BUILD_PATH }}
 
-      - name: Ensure react-scripts is installed
-        run: npm install react-scripts
+      - run: npm install react-scripts
         working-directory: ${{ env.BUILD_PATH }}
 
       - run: NODE_PATH=src/side-project npm run build
