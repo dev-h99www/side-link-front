@@ -27,9 +27,6 @@ jobs:
       - name: List src directory
         run: ls -al ${{ env.BUILD_PATH }}/src
 
-      - name: List side-project directory
-        run: ls -al ${{ env.BUILD_PATH }}/src/side-project
-
       - name: Check if public directory exists
         run: if [ -d "${{ env.BUILD_PATH }}/public" ]; then echo "Public directory exists"; else mkdir ${{ env.BUILD_PATH }}/public; fi
 
@@ -44,7 +41,7 @@ jobs:
       - run: npm install react-scripts
         working-directory: ${{ env.BUILD_PATH }}
 
-      - run: NODE_PATH=src/side-project npm run build
+      - run: npm run build
         working-directory: ${{ env.BUILD_PATH }}
 
       - name: Set up docker buildx
