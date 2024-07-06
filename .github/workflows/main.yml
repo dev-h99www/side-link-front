@@ -28,23 +28,17 @@ jobs:
       # github repository에서 checkout
       - uses: actions/checkout@v3
 
-      # - name: npm build
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: ${{ matrix.node-version }}
-      # - run: npm install
-      # - run: npm run build
-
-      
-      # - name: Use Node.js ${{ matrix.node-version }}
-      #   uses: actions/setup-node@v1
-      #   with:
-      #     node-version: ${{ matrix.node-version }}
-      # - run: npm ci
-      # - run: npm run build
-      #   if: ${{ always() }}
-
-      
+      #해당 프로젝트와 호환되는 버전의 node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.15.0'
+      # 프로젝트 의존성 설치 및 빌드
+      - run: npm install
+        working-directory: ${{ env.BUILD_PATH }}
+      - run: npm run build
+        working-directory: ${{ env.BUILD_PATH }}
+             
       # docker build 수행
       - name: Set up docker buildx
         id: buildx
