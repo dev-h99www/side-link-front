@@ -34,6 +34,10 @@ jobs:
       - name: List src directory
         run: ls -al ${{ env.BUILD_PATH }}/src
 
+      # side-project 디렉토리 구조 확인
+      - name: List side-project directory
+        run: ls -al ${{ env.BUILD_PATH }}/src/side-project
+
       # Node.js 설정
       - name: Set up Node.js
         uses: actions/setup-node@v3
