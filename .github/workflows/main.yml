@@ -10,7 +10,7 @@ env:
   DOCKER_IMAGE: ghcr.io/${{ github.actor }}/side-link-front
   VERSION: ${{ github.sha }}
   NAME: side-link-front
-  BUILD_PATH: ${{ github.workspace }}/side-link-front
+  BUILD_PATH: /home/runner/work/side-link-front/side-link-front
 
 jobs:
   # 빌드 Job
@@ -34,9 +34,9 @@ jobs:
           
       # 프로젝트 의존성 설치 및 빌드
       - run: npm install
-        working-directory: ${{ github.workspace }}/side-link-front
+        working-directory: ${{ env.BUILD_PATH }}
       - run: npm run build
-        working-directory: ${{ github.workspace }}/side-link-front
+        working-directory: ${{ env.BUILD_PATH }}
 
       # docker build 수행
       - name: Set up docker buildx
